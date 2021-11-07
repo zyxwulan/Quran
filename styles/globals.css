@@ -251,17 +251,18 @@ button {
 }
 
 .surah-col {
-  width: 32%;
+  width: 26vw;
 }
 
 .surah-card {
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100px;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.329);
   background-color: #31333dda;
-  padding: 1.5%;
+  padding: 5px;
   margin-bottom: 3%;
 }
 
@@ -276,7 +277,7 @@ button {
   border-radius: 50%;
   padding: 5px 10px;
   font-size: 14px;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .surah-text, .surah-text__juz {
@@ -311,7 +312,6 @@ button {
   justify-content: end;
   width: 35%;
   margin-left: auto;
-  word-break: break-all;
 }
 
 .surah-arabic__right {
@@ -323,7 +323,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  max-height: 800vh;
+  max-height: 950vh;
 }
 
 .juz-card {
@@ -509,13 +509,14 @@ button {
 } 
 
 .translations-ayah h6 {
-  font-size: 25px;
+  font-size: 35px;
   font-weight: bold;
   color: white;
   text-align: end;
   padding-top: 30px;
   margin-bottom: 25px;
   padding-right: 10px;
+  letter-spacing: 2px;
 }
 
 .translations-text {

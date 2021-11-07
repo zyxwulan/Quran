@@ -1,13 +1,24 @@
-import { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { getSurah } from "../../services/surah";
 import Juz from "../atoms/ListNumbers/numbers";
 import SurahCards from "../molecules/surahCards";
 
 function Content() {
     const [toggleState, setToggleState] = useState(1);
+    const [surah, setSurah] = useState([]);
 
     const toggleTab = (index) => {
         setToggleState(index);
     };
+
+    const getSurahList = useCallback(async () => {
+        const data = await getSurah();
+        setSurah(data);
+    }, [getSurah]);
+
+    useEffect(() => {
+        getSurahList();
+    }, [getSurahList]);
 
     return (
         <div className="container mt-1 content-box">
@@ -35,120 +46,16 @@ function Content() {
                     className={toggleState === 1 ? "content  active-content" : "content"}
                 >
                     <div className="px-1 py-3 row">
-                        <SurahCards number="1" title="Al-Fatihah" meaning="The Opener" arabic="الفاتحة" link="" />
-                        <SurahCards number="2" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="3" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="4" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="5" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="6" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="7" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="8" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="9" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="10" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="11" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="12" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="13" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="14" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="15" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="16" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="17" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="18" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="19" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="20" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="21" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="22" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="23" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="24" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="25" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="26" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="27" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="28" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="29" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="30" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="31" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="32" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="33" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="34" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="35" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="36" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="37" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="38" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="39" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="40" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="41" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="42" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="43" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="44" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="45" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="46" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="47" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="48" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="49" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="50" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="51" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="52" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="53" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="54" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="55" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="56" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="57" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="58" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="59" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="60" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="61" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="62" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="63" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="64" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="65" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="66" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="67" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="68" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="69" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="70" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="71" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="72" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="73" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="74" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="75" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="76" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="77" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="78" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="79" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="80" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="81" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="82" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="83" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="84" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="85" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="86" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="87" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="88" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="89" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="90" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="91" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="92" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="93" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="94" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="95" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="96" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="97" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="98" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="99" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="100" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="101" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="102" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="103" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="104" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="105" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="106" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="107" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="108" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="109" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="110" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="111" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="112" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="113" title="" meaning="" arabic="" link="" />
-                        <SurahCards number="114" title="" meaning="" arabic="" link="" />
+                        {surah.map((item) => {
+                            return (
+                                <SurahCards
+                                    key={item.number}
+                                    number={item.number}
+                                    title={item.name.transliteration.id}
+                                    meaning={item.name.translation.id}
+                                    arabic={item.name.long} />
+                            )
+                        })}
                     </div>
                 </div>
 

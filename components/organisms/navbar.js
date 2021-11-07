@@ -46,7 +46,7 @@ export default function Navbar(
                                     </ul>
                                 </div>
                             </div>
-                            <a className="navbar-brand" href="#"><strong>Quran</strong>.com</a>
+                            <a className="navbar-brand" href="/"><strong>Quran</strong>.com</a>
 
                             {/* Search Bar */}
                             <div className="navbar-search">

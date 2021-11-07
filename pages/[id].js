@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import DetailsNavbar from '../components/organisms/detailsNavbar'
 import Navbar from '../components/organisms/navbar'
 import { useState } from "react";
@@ -7,13 +7,27 @@ import AudioControl from '../components/molecules/audioControl';
 import Footer from '../components/organisms/footer'
 import Buttons from '../components/atoms/ListButtons/buttons';
 import Reading from '../components/organisms/reading';
+import { useRouter } from 'next/router';
+import { getAyat } from '../services/surah';
 
 export default function SurahDetails() {
     const [toggleState, setToggleState] = useState(1);
-
+    const { query, isReady } = useRouter();
+    const [ayat, setAyat] = useState([]);
     const toggleTab = (index) => {
         setToggleState(index);
     };
+
+    const getAyatList = useCallback(async (id) => {
+        const data = await getAyat(id);
+        setAyat(data.verses);
+    }, [getAyat]);
+
+    useEffect(() => {
+        if (isReady) {
+            getAyatList(query.id);
+        }
+    }, [isReady, getAyatList]);
 
     return (
         <>
@@ -53,9 +67,19 @@ export default function SurahDetails() {
                             className={toggleState === 1 ? "content  active-content" : "content"}
                         >
                             <div className="row translations">
-                                <Translations surah="1" verse="1" audio="" reflect="" ayah="In the Name of Allah—the Most Compassionate, Most Merciful." text="In the Name of Allah—the Most Compassionate, Most Merciful." by="Dr. Mustafa Khattab, the Clear Quran" />
-                                <Translations surah="1" verse="1" audio="" reflect="" ayah="In the Name of Allah—the Most Compassionate, Most Merciful." text="In the Name of Allah—the Most Compassionate, Most Merciful." by="Dr. Mustafa Khattab, the Clear Quran" />
-                                <Translations surah="1" verse="1" audio="" reflect="" ayah="In the Name of Allah—the Most Compassionate, Most Merciful." text="In the Name of Allah—the Most Compassionate, Most Merciful." by="Dr. Mustafa Khattab, the Clear Quran" />
+                                {ayat.map((item) => {
+                                    return (
+                                        <Translations
+                                            surah={query.id}
+                                            verse={item.number.inSurah}
+                                            audio={item.audio.primary}
+                                            reflect=""
+                                            ayah={item.text.arab}
+                                            text={item.text.transliteration.en}
+                                            meaning={item.translation.id}
+                                        />
+                                    )
+                                })}
                             </div>
                             <AudioControl src="" />
                         </div>
@@ -74,7 +98,7 @@ export default function SurahDetails() {
                             className={toggleState === 3 ? "content  active-content" : "content"}
                         >
                             <div className="row">
-                                
+
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Translations(
-    { surah, verse, audio, reflect, ayah, text, by }
+    { surah, verse, audio, reflect, ayah, text, meaning }
 ) {
     return (
         <>
@@ -25,7 +25,7 @@ export default function Translations(
                 </div>
                 <div className="translations-text">
                     <p className="translations-text__latin">{text}</p>
-                    <p className="translations-text__by">— {by}</p>
+                    <p className="translations-text__by">{meaning}</p>
                 </div>
             </div>
         </>
