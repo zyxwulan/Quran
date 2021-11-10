@@ -3,7 +3,7 @@ import SitesCards from '../molecules/sitesCards'
 
 export default function OtherSites() {
     return (
-        <div className="container">
+        <div className="container mt-3">
             <div className="px-2 row">
                 <SitesCards title="Salah" text="Search prayer times for any location" link="https://salah.com/" />
                 <SitesCards title="Sunnah" text="The Hadith of Prophet Muhammad (ﷺ)" link="https://sunnah.com/" />

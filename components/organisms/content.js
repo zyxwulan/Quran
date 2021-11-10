@@ -21,7 +21,7 @@ function Content() {
     }, [getSurahList]);
 
     return (
-        <div className="container mt-1 content-box">
+        <div className="container mt-3 content-box">
             <div className="mx-auto bloc-tabs">
                 {/* Surah Tab */}
                 <button
