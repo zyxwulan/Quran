@@ -1,5 +1,6 @@
 import React from 'react'
-import FooterLinks from '../molecules/FooterLinks'
+import FooterLinks from '../molecules/footerLinks'
+
 
 export default function Footer() {
     return (
