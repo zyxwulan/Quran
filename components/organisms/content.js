@@ -19,7 +19,6 @@ function Content() {
     useEffect(() => {
         getSurahList();
     }, [getSurahList]);
-
     return (
         <div className="container mt-3 content-box">
             <div className="mx-auto bloc-tabs">
